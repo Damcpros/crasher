@@ -1,0 +1,9 @@
+while true do wait()
+			
+				local UserInputService = game:GetService("UserInputService")
+				local mouseLocation = UserInputService:GetMouseLocation()
+				game.Players.LocalPlayer:GetMouse().KeyDown:connect(function(key)
+					if key == "v" then
+						players.LocalPlayer.Character.HumanoidRootPart.CFrame = mouseLocation.Magnitude
+					end
+				end)
