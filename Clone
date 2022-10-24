@@ -1,0 +1,20 @@
+lplr = game.Players.LocalPlayer
+local cam = workspace.CurrentCamera
+local oldchar
+local clone
+
+oldchar = lplr.Character
+oldchar.Archivable = true
+clone = oldchar:Clone()
+oldchar.PrimaryPart.Anchored = false
+
+local humc = oldchar.Humanoid:Clone()
+humc.Parent = lplr.Character
+
+cam.CameraSubject = clone.Humanoid 
+clone.Parent = workspace
+lplr.Character = clone
+
+while true do wait()
+	cam.CameraSubject = clone.Humanoid
+end
